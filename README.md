@@ -1,94 +1,16 @@
-# Bulk Mail Sender — Frontend Only
+# React + Vite
 
-A production-ready Bulk Mail Application built with **React (Vite)** + **EmailJS**. No backend needed — works 100% from the browser and deploys perfectly on Vercel.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- **Bulk Email Sending**: Send to up to 500 recipients via EmailJS (no server required).
-- **Smart Validation**: Parses comma, space, or newline-separated emails. Deduplicates, trims, and validates format.
-- **Sequential Sending**: Each email sent one by one for reliability.
-- **Detailed Results**: Shows total, sent, failed counts and a list of failed addresses.
-- **Modern UI**: Premium glassmorphism design with gradients, animations, and full mobile responsiveness.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
----
+## React Compiler
 
-## Folder Structure
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-```
-frontend/
-├── src/
-│   ├── components/
-│   │   ├── EmailForm.jsx
-│   │   ├── ResultDisplay.jsx
-│   │   └── Spinner.jsx
-│   ├── pages/
-│   │   └── Home.jsx
-│   ├── services/
-│   │   └── api.js
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── .env.example
-├── index.html
-└── package.json
-```
+## Expanding the Oxlint configuration
 
----
-
-## Setup EmailJS (Required)
-
-1. Go to [https://www.emailjs.com](https://www.emailjs.com) and create a free account.
-2. **Add an Email Service**: Connect your Gmail account under **Email Services**.
-3. **Create an Email Template**: Go to **Email Templates** → **Create New Template**.
-   - Set **To Email** field to: `{{to_email}}`
-   - Set **Subject** to: `{{subject}}`
-   - Set **Content/Body** to: `{{message}}`
-   - Save the template and note the **Template ID**.
-4. Go to **Account** → **General** to find your **Public Key**.
-
----
-
-## Installation & Local Setup
-
-```bash
-cd frontend
-npm install
-```
-
-Create a `.env` file in the `frontend/` directory:
-```env
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-Run locally:
-```bash
-npm run dev
-```
-
-Visit `http://localhost:5173`
-
----
-
-## Deploy on Vercel
-
-1. Push this repository to GitHub.
-2. Go to [https://vercel.com](https://vercel.com) → **New Project**.
-3. Import your GitHub repository.
-4. Set **Root Directory** to `frontend`.
-5. Set **Framework Preset** to `Vite`.
-6. Add Environment Variables:
-   - `VITE_EMAILJS_SERVICE_ID`
-   - `VITE_EMAILJS_TEMPLATE_ID`
-   - `VITE_EMAILJS_PUBLIC_KEY`
-7. Click **Deploy**. Done! ✅
-
----
-
-## Future Improvements
-
-- Support HTML/rich text email body.
-- Show per-email send progress bar.
-- Add CSV file upload for recipient list.
-- Add email scheduling support.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
